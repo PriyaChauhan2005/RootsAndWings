@@ -1,10 +1,16 @@
-import User from "../models/user";
+import User from "../models/user.js";
+import { createClerkClient } from '@clerk/clerk-sdk-node';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+const clerkClient = createClerkClient({ secretKey: process.env.CLERK_SECRET_KEY });
 
 export const getUser = async (req, res) => {
-    const { clerkid, email, name, imageUrl } = req.body
+    const { clerkId, email, name, imageUrl } = req.body
 
     try {
-        let user = await User.findOne({ clerkid });
+        let user = await User.findOne({ clerkId });
 
         if (user) {
             // User exists - return them (so frontend knows their role)
@@ -13,7 +19,7 @@ export const getUser = async (req, res) => {
 
         // 2. User doesn't exist - Create new one
         user = new User({
-            clerkid,
+            clerkId,
             email,
             name,
             imageUrl,
@@ -41,6 +47,11 @@ export const updateUserRole = async (req, res) => {
       if (!user) {
         return res.status(404).json({ message: 'User not found' });
       }
+      await clerkClient.users.updateUserMetadata(clerkId, {
+        publicMetadata: {
+            role: role
+        }
+      });
   
       res.json(user);
     } catch (error) {

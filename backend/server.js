@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import userRoutes from './routes/userRoutes.js';
 
 // Initialize dotenv to load .env variables
 dotenv.config();
@@ -30,6 +31,7 @@ connectDB();
 app.get('/', (req, res) => {
   res.send('Roots & Wings API is Running!');
 });
+app.use('/api/users', userRoutes);
 
 // Start Server
 const PORT = process.env.PORT || 5000;

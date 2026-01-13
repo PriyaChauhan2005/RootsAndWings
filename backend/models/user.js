@@ -22,7 +22,7 @@ const userSchema = new mongoose.Schema({
     },
     role: {
         type: String,
-        enum: ['donor', 'orphanage', 'admin'],
+        enum: ['donor', 'orphanage', 'admin', null],
         default: 'donor' // Default role until they select one
     }
 }, {
