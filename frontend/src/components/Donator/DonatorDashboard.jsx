@@ -5,7 +5,7 @@ import StatCard from './StatCard';
 import AdoptedDays from './AdoptedDays';
 import MonthlyContributions from './MonthlyContributions';
 import MealsFunded from './MealsFunded';
-import SaplingLevel from './SaplingLevel';
+import SaplingLevel from './Saplinglevel';
 import MoneyBreakdown from './MoneyBreakdown';
 
 export default function DonatorDashboard() {
