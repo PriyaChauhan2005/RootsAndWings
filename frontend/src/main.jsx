@@ -18,9 +18,9 @@ import SmartAdoption from './pages/SmartAdoption'
 import Layout from './Layout'
 import RootsOfLove from './components/DigitalTwin/RootsOfLove';
 import ImpactStories from "./components/Donator/ImpactStories/ImpactStories";
+import RootLove from "./pages/RootLove";
 
 
-import RootsOfLove from './components/DigitalTwin/RootsOfLove'
 import OverviewDashboard from './components/Orphanage/Overview/OverviewDashboard'
 import VisitScheduler from './components/Orphanage/Scheduler/VisitScheduler'
 import InventoryDashboard from './components/Orphanage/Inventory/InventoryDashboard'
@@ -76,7 +76,7 @@ const router = createBrowserRouter(
         <Route path='/roots-of-love' element={<RootsOfLove />} />
         <Route path="/impact-stories" element={<ImpactStories />} />
 
-        <Route path='/roots-love' element={<RootsOfLove />} />
+        <Route path='/roots-love' element={<RootLove />} />
         <Route path='/adopt' element={<AdoptionGallery />} />
       </Route>
 
